@@ -1,10 +1,11 @@
 import "./App.css";
-import Weather from "./Weather";
+import SearchEngine from "./SearchEngine";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <Weather city="Toronto" />
+    <div className="App container">
+      <SearchEngine />
     </div>
   );
 }

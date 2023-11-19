@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Audio } from "react-loader-spinner";
 import axios from "axios";
+import "./Weather.css";
 
 function Weather(props) {
   let [temperature, setTemperature] = useState(null);
