@@ -30,27 +30,31 @@ export default function Search() {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayApiData);
     setMessaga(
-      <div className="row">
+      <div>
         <div>
           <h2>{city}</h2>
-          <h3>Sunday 10:00</h3>
-        </div>
-        <div className="col-8 d-flex">
-          <img
-            src={weather.icon}
-            alt="Weather description"
-            className="float-left"
-          />
-          <h1 className="Main-temperature pt-4">
-            {Math.round(temperature)} °C
-          </h1>
-        </div>
-        <div className="col-4">
-          <ul>
+          <ul className="Current-weather">
+            <li>Sunday 10:00</li>
             <li>{weather.description}</li>
-            <li>Humidity is {Math.round(weather.humidity)} %</li>
-            <li>Wind speed is {Math.round(wind)} km/h</li>
           </ul>
+        </div>
+        <div className="row">
+          <div className="col-8 d-flex">
+            <img
+              src={weather.icon}
+              alt="Weather description"
+              className="float-left"
+            />
+            <h1 className="Main-temperature pt-4">
+              {Math.round(temperature)} °C
+            </h1>
+          </div>
+          <div className="col-4">
+            <ul>
+              <li>Humidity is {Math.round(weather.humidity)} %</li>
+              <li>Wind speed is {Math.round(wind)} km/h</li>
+            </ul>
+          </div>
         </div>
       </div>
     );
@@ -74,7 +78,7 @@ export default function Search() {
   );
   if (loaded) {
     return (
-      <div className="container">
+      <div className=" Weather container">
         {form}
         <p>{message}</p>
       </div>

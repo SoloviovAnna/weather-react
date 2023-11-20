@@ -5,10 +5,17 @@ li {
   color: black;
   opacity: 3;
 }
-h3 {
+.Current-weather ul {
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
 }
 .Main-temperature h1 {
   font-size: 78px;
+}
+.SearchEngine {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto;
 }
