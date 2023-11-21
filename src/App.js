@@ -8,11 +8,14 @@ function App() {
     <div className="App">
       <div className="container">
         <SearchEngine className="App-Engine" />
-        <small class="footer-text">
-          <a href="https://github.com/SoloviovAnna/weather-react">
-            Open source code <span class="anna-text">by Anna S</span>
+        <footer>
+          <a
+            className="icon-link icon-link-hover"
+            href="https://github.com/SoloviovAnna/weather-react"
+          >
+            Open source code <span className="anna-text">by Anna S</span>
           </a>
-        </small>
+        </footer>
       </div>
     </div>
   );

@@ -45,9 +45,10 @@ export default function Search() {
               alt="Weather description"
               className="float-left"
             />
-            <h1 className="Main-temperature pt-4">
-              {Math.round(temperature)} °C
-            </h1>
+            <div className="pt-4">
+              <span className="temperature">{Math.round(temperature)} </span>
+              <span className="unit">°C</span>
+            </div>
           </div>
           <div className="col-4">
             <ul>
@@ -65,20 +66,25 @@ export default function Search() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit} className="Search-engine text-center">
+    <form onSubmit={handleSubmit} className="input-group text-center m-2">
       <input
-        className="form-search m-2"
+        className="form-control rounded m-1"
         type="search"
-        placeholder="Type a city..."
-        autoFocus={true}
+        placeholder="Enter a city..."
+        autoFocus="on"
         onChange={updateCity}
       />
-      <input className="btn btn-primary p-2" type="submit" value="Search" />
+      <button className="btn btn-primary m-1 rounded" type="submit">
+        Search
+      </button>
+      <button className="btn btn-success m-1 rounded" type="submit">
+        Current
+      </button>
     </form>
   );
   if (loaded) {
     return (
-      <div className=" Weather container">
+      <div className=" SearchEngine container">
         {form}
         <p>{message}</p>
       </div>
