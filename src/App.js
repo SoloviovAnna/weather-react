@@ -7,13 +7,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <SearchEngine className="App-Engine" />
+        <SearchEngine className="App-Engine" defaultCity="Etobicoke" />
         <footer>
           <a
             className="icon-link icon-link-hover"
             href="https://github.com/SoloviovAnna/weather-react"
           >
-            Open source code <span className="anna-text">by Anna S</span>
+            Open source code <span className="text">by Anna S</span>
           </a>
         </footer>
       </div>

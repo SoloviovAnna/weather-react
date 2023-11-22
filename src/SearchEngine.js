@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./SearchEngine.css";
 
 export default function Search() {
   const [city, setCity] = useState("");
   const [message, setMessaga] = useState(null);
-  // const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({ loaded: false });
 
   function displayApiData(response) {
-    console.log(response);
     setWeather({
       loaded: true,
       temperature: response.data.temperature.current,
@@ -17,7 +16,8 @@ export default function Search() {
       icon: response.data.condition.icon_url,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
-      date: "Wednesday 10:00",
+      date: new Date(1700677492 * 1000),
+      //date: new Date(response.data.time * 1000),
     });
   }
 
@@ -31,7 +31,9 @@ export default function Search() {
         <div className="m-3">
           <h1>{city}</h1>
           <ul>
-            <li>{weather.date}</li>
+            <li>
+              <FormattedDate date={weather.date} />
+            </li>
             <li className="text-capitalize">{weather.description}</li>
           </ul>
         </div>
