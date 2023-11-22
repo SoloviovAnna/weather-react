@@ -5,37 +5,34 @@ import "./SearchEngine.css";
 export default function Search() {
   const [city, setCity] = useState("");
   const [message, setMessaga] = useState(null);
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
-  const [temperature, setTemperature] = useState(null);
-  const [wind, setWind] = useState(null);
+  // const [loaded, setLoaded] = useState(false);
+  const [weather, setWeather] = useState({ loaded: false });
 
   function displayApiData(response) {
-    setLoaded(true);
     console.log(response);
-    setTemperature(response.data.temperature.current);
-    setWind(response.data.wind.speed);
     setWeather({
-      // temperature: response.data.temperature.current,
-      //wind: response.data.wind.speed,
+      loaded: true,
+      temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
       icon: response.data.condition.icon_url,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
+      date: "Wednesday 10:00",
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "4f10500b5at878ff8cc3c53cf761ba8o";
+    const apiKey = "4f10500b5at878ff8cc3c53cf761ba8o";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayApiData);
     setMessaga(
       <div>
-        <div>
-          <h2>{city}</h2>
-          <ul className="Current-weather">
-            <li>Sunday 10:00</li>
-            <li>{weather.description}</li>
+        <div className="m-3">
+          <h1>{city}</h1>
+          <ul>
+            <li>{weather.date}</li>
+            <li className="text-capitalize">{weather.description}</li>
           </ul>
         </div>
         <div className="row">
@@ -46,14 +43,16 @@ export default function Search() {
               className="float-left"
             />
             <div className="pt-4">
-              <span className="temperature">{Math.round(temperature)} </span>
+              <span className="temperature">
+                {Math.round(weather.temperature)}{" "}
+              </span>
               <span className="unit">°C</span>
             </div>
           </div>
           <div className="col-4">
             <ul>
               <li>Humidity is {Math.round(weather.humidity)} %</li>
-              <li>Wind speed is {Math.round(wind)} km/h</li>
+              <li>Wind speed is {Math.round(weather.wind)} km/h</li>
             </ul>
           </div>
         </div>
@@ -82,7 +81,7 @@ export default function Search() {
       </button>
     </form>
   );
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div className=" SearchEngine container">
         {form}
