@@ -62,9 +62,10 @@ export default function Search() {
       </div>
     );
   } else {
+    Search();
     return (
       <div>
-        Search();
+        {form}
         <p>Loading...</p>
       </div>
     );
