@@ -1,5 +1,4 @@
 import "./App.css";
-import "./Weather";
 import SearchEngine from "./SearchEngine";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
