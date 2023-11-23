@@ -20,6 +20,7 @@ export default function Search(props) {
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       city: response.data.city,
+      country: response.data.country,
       //date: new Date(1700677492 * 1000),
       date: new Date(response.data.time * 1000),
     });
