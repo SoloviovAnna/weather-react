@@ -4,8 +4,8 @@ import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./SearchEngine.css";
 
-export default function Search() {
-  const [city, setCity] = useState("");
+export default function Search(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ loaded: false });
 
   function displayApiData(response) {
