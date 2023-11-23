@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import WeatherInfo from "./WeatherInfo";
 
 export default function WeatherConversion(props) {
   let [unit, setUnit] = useState("celsius");
