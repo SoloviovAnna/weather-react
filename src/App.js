@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <SearchEngine className="App-Engine" defaultCity="Etobicoke" />
+        <SearchEngine className="App-Engine" defaultCity="Tokyo" />
         <footer>
           <a
             className="icon-link icon-link-hover"

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./SearchEngine.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Search(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -14,7 +15,8 @@ export default function Search(props) {
       loaded: true,
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      icon: response.data.condition.icon_url,
+      icon_url: response.data.condition.icon_url,
+      icon: response.data.condition.icon,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       city: response.data.city,
@@ -59,13 +61,15 @@ export default function Search(props) {
       <div className=" SearchEngine container">
         {form}
         <WeatherInfo data={weather} />
+        <div>
+          <WeatherIcon data={weather.icon} />
+        </div>
       </div>
     );
   } else {
     Search();
     return (
       <div>
-        {form}
         <p>Loading...</p>
       </div>
     );
