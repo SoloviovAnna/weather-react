@@ -21,8 +21,22 @@ export default function Search(props) {
       humidity: response.data.temperature.humidity,
       city: response.data.city,
       country: response.data.country,
-      //date: new Date(1700677492 * 1000),
       date: new Date(response.data.time * 1000),
+    });
+  }
+  function displayCurrentApiData(response) {
+    console.log(response);
+    setWeather({
+      loaded: true,
+      temperature: response.data.daily[0].temperature.day,
+      wind: response.data.daily[0].wind.speed,
+      icon_url: response.data.daily[0].condition.icon_url,
+      icon: response.data.daily[0].condition.icon,
+      description: response.data.daily[0].condition.description,
+      humidity: response.data.daily[0].temperature.humidity,
+      city: response.data.city,
+      country: response.data.country,
+      date: new Date(response.data.daily[0].time * 1000),
     });
   }
 
@@ -39,7 +53,19 @@ export default function Search(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
+  function getPosition(position) {
+    const lat = position.coords.latitude; //43.6441142;
+    const lon = position.coords.longitude; //-79.5290082; //
+    console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+    let apiKey = "4f10500b5at878ff8cc3c53cf761ba8o";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayCurrentApiData);
+  }
 
+  function getCurrentPosition(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
   let form = (
     <form onSubmit={handleSubmit} className="input-group text-center m-2">
       <input
@@ -52,14 +78,18 @@ export default function Search(props) {
       <button className="btn btn-primary m-1 rounded" type="submit">
         Search
       </button>
-      <button className="btn btn-success m-1 rounded" type="submit">
+      <button
+        className="btn btn-success m-1 rounded"
+        type="submit"
+        onClick={getCurrentPosition}
+      >
         Current
       </button>
     </form>
   );
   if (weather.loaded) {
     return (
-      <div className=" SearchEngine container">
+      <div className="SearchEngine container">
         {form}
         <WeatherInfo data={weather} />
         <div>
