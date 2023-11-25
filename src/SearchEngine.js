@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./SearchEngine.css";
-import WeatherIcon from "./WeatherIcon";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Search(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -93,7 +93,7 @@ export default function Search(props) {
         {form}
         <WeatherInfo data={weather} />
         <div>
-          <WeatherIcon data={weather.icon} />
+          <WeatherForecast />
         </div>
       </div>
     );
