@@ -11,6 +11,8 @@ function App() {
           <a
             className="icon-link icon-link-hover"
             href="https://github.com/SoloviovAnna/weather-react"
+            target="_blank"
+            rel="nooperent noreferrer"
           >
             Open source code <span className="text">by Anna S</span>
           </a>

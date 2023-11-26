@@ -6,3 +6,7 @@
   opacity: 0.7;
   margin-left: 10px;
 }
+.WeatherForecast-icon {
+  display: d-flex;
+  justify-content: center;
+}
