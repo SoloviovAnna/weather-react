@@ -9,7 +9,7 @@ export default function Search(props) {
   const [weather, setWeather] = useState({ loaded: false });
 
   function displayApiData(response) {
-    //console.log(response.data);
+    console.log(response.data.temperature.current);
     setWeather({
       loaded: true,
       coordinates: response.data.coordinates,

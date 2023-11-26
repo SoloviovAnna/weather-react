@@ -13,14 +13,14 @@ export default function DayForecast(props) {
     <div>
       <div className="WeatherForecast">
         <div className="WeatherForecast-day">{day()}</div>
-        <div>
+        <div className="WeatherForecast-icon">
           <WeatherIcon data={props.data.condition.icon} />
         </div>
         <span className="WeatherForecast-temperature-max">
-          {Math.round(props.data.temperature.maximum)}°
+          {Math.round(props.data.temperature.maximum)}°C
         </span>
         <span className="WeatherForecast-temperature-min">
-          {Math.round(props.data.temperature.minimum)}°
+          {Math.round(props.data.temperature.minimum)}°C
         </span>
       </div>
     </div>
