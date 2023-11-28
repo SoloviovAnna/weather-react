@@ -68,7 +68,10 @@ export default function Search(props) {
     navigator.geolocation.getCurrentPosition(getPosition);
   }
   let form = (
-    <form onSubmit={handleSubmit} className="input-group text-center m-2">
+    <form
+      onSubmit={handleSubmit}
+      className="input-group text-center m-2 mr-8 ml-0"
+    >
       <input
         className="form-control rounded m-1"
         type="search"
@@ -80,7 +83,7 @@ export default function Search(props) {
         Search
       </button>
       <button
-        className="btn btn-success m-1 rounded"
+        className="btn btn-success m-1 rounded pr-2"
         type="submit"
         onClick={getCurrentPosition}
       >
@@ -90,10 +93,10 @@ export default function Search(props) {
   );
   if (weather.loaded) {
     return (
-      <div className="SearchEngine container">
+      <div className="SearchEngine mb-0">
         {form}
         <WeatherInfo data={weather} />
-        <div>
+        <div className="Forecast">
           <WeatherForecast data={weather} />
         </div>
       </div>

@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="container">
         <SearchEngine className="App-Engine" defaultCity="Tokyo" />
-        <footer>
+        <footer className="Footer pt-0">
           <a
             className="icon-link icon-link-hover"
             href="https://github.com/SoloviovAnna/weather-react"

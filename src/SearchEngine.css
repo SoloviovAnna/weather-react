@@ -40,3 +40,31 @@
   top: -32px;
   margin-left: 0;
 }
+
+@media (max-width: 576px) {
+  .SearchEngine .temperature {
+    font-size: 42px;
+  }
+}
+@media (max-width: 576px) {
+  .SearchEngine .unit {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .SearchEngine h1 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .SearchEngine li {
+    font-size: 11px;
+  }
+}
+@media (max-width: 576px) {
+  .SearchEngine .Forecast {
+    display: none;
+  }
+}
