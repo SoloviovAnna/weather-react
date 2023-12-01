@@ -9,7 +9,7 @@ export default function Search(props) {
   const [weather, setWeather] = useState({ loaded: false });
 
   function displayApiData(response) {
-    console.log(response.data.temperature);
+    console.log(response.data);
     setWeather({
       loaded: true,
       coordinates: response.data.coordinates,
@@ -79,7 +79,11 @@ export default function Search(props) {
         autoFocus="on"
         onChange={updateCity}
       />
-      <button className="btn btn-primary m-1 rounded" type="submit">
+      <button
+        className="btn btn-primary m-1 rounded"
+        type="submit"
+        onClick={() => setCity("")}
+      >
         Search
       </button>
       <button
